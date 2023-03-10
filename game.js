@@ -6,7 +6,9 @@ var level = 0;
 $(document).on("keydown", function () {
     if (level == 0) {
         $("h1").text("Level 0");
-        nextSequence();
+        setTimeout(function () {
+            nextSequence();
+        }, 200);
     }
     else { }
 })
@@ -31,9 +33,7 @@ function checkAnswer(currentLevel) {
             $("body").removeClass("game-over");
         }, 200);
         $(document).on("keydown", function () {
-            setTimeout(function () {
                 startOver();
-            }, 500)
         });
     }
     if (userClickedPattern.length == gamePattern.length && userClickedPattern[userClickedPattern.length - 1] == gamePattern[gamePattern.length - 1]) {
